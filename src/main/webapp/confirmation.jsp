@@ -1,28 +1,25 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 
-<%
-    Boolean success = (Boolean) request.getAttribute("orderSuccess");
-    Integer orderId = (Integer) request.getAttribute("orderId");
-    String error = (String) request.getAttribute("error");
-%>
-
 <html>
 <head>
-    <title>Confirmation</title>
+    <title>Order Confirmation</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
 
+<h1>Order Status</h1>
+
+<% Boolean success = (Boolean) request.getAttribute("orderSuccess"); %>
+
 <% if (success != null && success) { %>
-<h1>Order Confirmed</h1>
-<p>Order ID: <%= orderId %></p>
-<a href="products">Continue Shopping</a>
+<p>✅ Your order has been placed successfully!</p>
+<p>Order ID: <b><%= request.getAttribute("orderId") %></b></p>
 <% } else { %>
-<h1>Order Failed</h1>
-<p><%= error %></p>
-<a href="products">Back</a>
+<p>❌ Failed to place order.</p>
+<p>Error: <%= request.getAttribute("error") %></p>
 <% } %>
+
+<a href="products">Back to Products</a>
 
 </body>
 </html>

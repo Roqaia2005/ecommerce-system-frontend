@@ -13,31 +13,27 @@
 </head>
 <body>
 
-<div class="container">
-    <h1>🛒 Products</h1>
+<h1>🛒 Products</h1>
 
-    <div class="products-grid">
-        <% if (productsList != null && !productsList.isEmpty()) {
-            for (Map<String, Object> product : productsList) {
-                int quantity = (int) product.get("quantity");
-        %>
-        <div class="product-card">
-            <div><%= product.get("name") %></div>
-            <div>$<%= product.get("price") %></div>
-
-            <form action="checkout" method="get">
-                <input type="hidden" name="product_id"
-                       value="<%= product.get("id") %>">
-                <button <%= quantity == 0 ? "disabled" : "" %>>
-                    Buy
-                </button>
-            </form>
-        </div>
-        <% } } else { %>
-        <p>No products available</p>
-        <% } %>
+<% if (productsList != null && !productsList.isEmpty()) { %>
+<div class="products-grid">
+    <% for (Map<String, Object> product : productsList) {
+        int quantity = (int) product.get("quantity");
+    %>
+    <div class="product-card">
+        <div><b><%= product.get("name") %></b></div>
+        <div>Price: $<%= product.get("price") %></div>
+        <div>Stock: <%= quantity %></div>
+        <form action="checkout" method="get">
+            <input type="hidden" name="product_id" value="<%= product.get("id") %>">
+            <button <%= quantity == 0 ? "disabled" : "" %>>Buy</button>
+        </form>
     </div>
+    <% } %>
 </div>
+<% } else { %>
+<p>No products available</p>
+<% } %>
 
 </body>
 </html>
