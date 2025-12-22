@@ -1,288 +1,165 @@
-/* =========================
-   Reset & Base Styles
-   ========================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/*!* ==============================*/
+/*   General Reset and Base Styles*/
+/*   ============================== *!*/
+/*body {*/
+/*    font-family: Arial, Helvetica, sans-serif;*/
+/*    margin: 20px;*/
+/*    padding: 0;*/
+/*    background-color: #f9f9f9;*/
+/*    color: #333;*/
+/*    line-height: 1.6;*/
+/*}*/
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    min-height: 100vh;
-    padding: 20px;
-    color: #333;
-}
+/*h2, h3 {*/
+/*    color: #2c3e50;*/
+/*}*/
 
-a {
-    text-decoration: none;
-}
+/*a {*/
+/*    color: #3498db;*/
+/*    text-decoration: none;*/
+/*    margin-right: 10px;*/
+/*}*/
 
-button {
-    cursor: pointer;
-}
+/*a:hover {*/
+/*    text-decoration: underline;*/
+/*}*/
 
-/* =========================
-   Containers
-   ========================= */
-.container {
-    max-width: 1200px;
-    margin: auto;
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-}
+/*hr {*/
+/*    border: 0;*/
+/*    border-top: 1px solid #ccc;*/
+/*    margin: 20px 0;*/
+/*}*/
 
-/* =========================
-   Headers
-   ========================= */
-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
+/*!* ==============================*/
+/*   Table Styles*/
+/*   ============================== *!*/
+/*table {*/
+/*    width: 100%;*/
+/*    border-collapse: collapse;*/
+/*    margin-bottom: 20px;*/
+/*    background-color: #fff;*/
+/*    box-shadow: 0 2px 5px rgba(0,0,0,0.1);*/
+/*}*/
 
-h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-}
+/*table th, table td {*/
+/*    padding: 10px;*/
+/*    text-align: left;*/
+/*    border-bottom: 1px solid #ddd;*/
+/*}*/
 
-.subtitle {
-    font-size: 1.1em;
-    color: #666;
-}
+/*table th {*/
+/*    background-color: #3498db;*/
+/*    color: white;*/
+/*}*/
 
-/* =========================
-   Forms
-   ========================= */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
+/*table tr:hover {*/
+/*    background-color: #f1f1f1;*/
+/*}*/
 
-form label {
-    font-weight: 600;
-}
+/*!* ==============================*/
+/*   Form Styles*/
+/*   ============================== *!*/
+/*form {*/
+/*    background-color: #fff;*/
+/*    padding: 20px;*/
+/*    border-radius: 5px;*/
+/*    box-shadow: 0 2px 5px rgba(0,0,0,0.1);*/
+/*    max-width: 600px;*/
+/*}*/
 
-form input[type="number"],
-form input[type="text"] {
-    padding: 8px 12px;
-    border: 2px solid #ddd;
-    border-radius: 6px;
-    font-size: 1em;
-}
+/*label {*/
+/*    display: block;*/
+/*    margin-bottom: 5px;*/
+/*    font-weight: bold;*/
+/*}*/
 
-form button {
-    padding: 12px 20px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1em;
-    font-weight: bold;
-    background: #667eea;
-    color: white;
-}
+/*input[type="number"],*/
+/*input[type="text"],*/
+/*input[type="email"],*/
+/*input[type="password"] {*/
+/*    width: 100%;*/
+/*    padding: 8px 10px;*/
+/*    margin-bottom: 15px;*/
+/*    border: 1px solid #ccc;*/
+/*    border-radius: 4px;*/
+/*    box-sizing: border-box;*/
+/*}*/
 
-form button:hover {
-    background: #5568d3;
-}
+/*button {*/
+/*    background-color: #3498db;*/
+/*    color: white;*/
+/*    border: none;*/
+/*    padding: 10px 20px;*/
+/*    border-radius: 4px;*/
+/*    cursor: pointer;*/
+/*    font-size: 1em;*/
+/*    transition: background-color 0.3s ease;*/
+/*}*/
 
-/* Product row inside forms (checkout page) */
-.product-row {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    align-items: center;
-}
+/*button:hover {*/
+/*    background-color: #2980b9;*/
+/*}*/
 
-/* =========================
-   Products Grid (catalog)
-   ========================= */
-.products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 25px;
-}
+/*!* ==============================*/
+/*   Notification Boxes*/
+/*   ============================== *!*/
+/*div.error {*/
+/*    color: #c0392b;*/
+/*    font-weight: bold;*/
+/*    background-color: #fceaea;*/
+/*    padding: 10px;*/
+/*    border-radius: 4px;*/
+/*    margin-bottom: 15px;*/
+/*}*/
 
-.product-card {
-    border: 2px solid #e0e0e0;
-    border-radius: 12px;
-    padding: 20px;
-    background: #f9f9f9;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
+/*div.success {*/
+/*    color: #27ae60;*/
+/*    font-weight: bold;*/
+/*    background-color: #e8f5e9;*/
+/*    padding: 15px;*/
+/*    border-radius: 5px;*/
+/*}*/
 
-.product-name {
-    font-size: 1.3em;
-    font-weight: bold;
-}
+/*!* ==============================*/
+/*   Product Item Styles*/
+/*   ============================== *!*/
+/*div.product-item {*/
+/*    background-color: #fff;*/
+/*    padding: 15px;*/
+/*    margin-bottom: 15px;*/
+/*    border-radius: 5px;*/
+/*    box-shadow: 0 2px 5px rgba(0,0,0,0.1);*/
+/*}*/
 
-.product-price {
-    color: #667eea;
-    font-size: 1.4em;
-    font-weight: bold;
-}
+/*div.product-item b {*/
+/*    font-size: 1.1em;*/
+/*}*/
 
-.product-stock {
-    font-weight: 600;
-}
+/*div.product-item input[type="number"] {*/
+/*    width: 80px;*/
+/*}*/
 
-.product-stock.low {
-    color: #ffc107;
-}
+/*!* ==============================*/
+/*   Links Container*/
+/*   ============================== *!*/
+/*.nav-links {*/
+/*    margin-bottom: 15px;*/
+/*}*/
 
-.product-stock.out {
-    color: #dc3545;
-}
+/*.nav-links a {*/
+/*    font-weight: bold;*/
+/*}*/
 
-.quantity-input {
-    width: 100%;
-    padding: 8px;
-    border: 2px solid #ddd;
-    border-radius: 6px;
-}
+/*!* ==============================*/
+/*   Responsive Adjustments*/
+/*   ============================== *!*/
+/*@media (max-width: 768px) {*/
+/*    table, form {*/
+/*        width: 100%;*/
+/*        overflow-x: auto;*/
+/*    }*/
 
-.add-to-cart-btn {
-    padding: 12px;
-    background: #667eea;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-}
-
-.add-to-cart-btn:hover {
-    background: #5568d3;
-}
-
-.add-to-cart-btn:disabled {
-    background: #ccc;
-    cursor: not-allowed;
-}
-
-/* =========================
-   Checkout / Confirmation Pages
-   ========================= */
-hr {
-    border: 0;
-    border-top: 1px solid #ddd;
-    margin: 20px 0;
-}
-
-.success-icon,
-.error-icon {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-}
-
-.success-icon {
-    background: #28a745;
-}
-
-.error-icon {
-    background: #dc3545;
-    color: white;
-    font-size: 60px;
-}
-
-.checkmark {
-    width: 50px;
-    height: 50px;
-    border: 5px solid white;
-    border-top: none;
-    border-right: none;
-    transform: rotate(-45deg);
-}
-
-.order-number {
-    font-size: 1.5em;
-    color: #667eea;
-    font-weight: bold;
-    margin: 15px 0;
-    padding: 10px;
-    background: #f0f3ff;
-    border-radius: 10px;
-}
-
-.order-details {
-    background: #f9f9f9;
-    border-radius: 12px;
-    border: 2px solid #e0e0e0;
-    padding: 20px;
-    margin: 20px 0;
-}
-
-.detail-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 0;
-    border-bottom: 1px solid #e0e0e0;
-}
-
-.detail-row:last-child {
-    border-bottom: none;
-}
-
-.detail-label {
-    color: #666;
-    font-weight: 600;
-}
-
-.detail-value {
-    color: #333;
-    font-weight: bold;
-}
-
-.message {
-    font-size: 1.1em;
-    color: #666;
-    margin: 20px 0;
-}
-
-.actions {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.btn {
-    padding: 12px 25px;
-    border-radius: 8px;
-    font-weight: bold;
-    border: none;
-}
-
-.btn-primary {
-    background: #667eea;
-    color: white;
-}
-
-.btn-primary:hover {
-    background: #5568d3;
-}
-
-.btn-secondary {
-    background: #6c757d;
-    color: white;
-}
-
-.btn-secondary:hover {
-    background: #5a6268;
-}
-
-.error-container {
-    background: #f8d7da;
-    color: #721c24;
-    padding: 20px;
-    border-radius: 10px;
-    border: 2px solid #f5c6cb;
-}
+/*    input[type="number"] {*/
+/*        width: 100%;*/
+/*    }*/
+/*}*/

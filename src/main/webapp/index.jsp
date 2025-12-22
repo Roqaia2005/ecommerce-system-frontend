@@ -1,39 +1,74 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%@ page import="java.util.*" %>
-
-<%
-    List<Map<String, Object>> productsList =
-            (List<Map<String, Object>>) request.getAttribute("productsList");
-%>
+<%@ page import="org.json.JSONArray" %>
+<%@ page import="org.json.JSONObject" %>
 
 <html>
 <head>
-    <title>Products</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Product Catalog</title>
+    <link rel="stylesheet" href="style.css?v=1.0">
 </head>
 <body>
 
-<h1>🛒 Products</h1>
+<h2>Available Products</h2>
 
-<% if (productsList != null && !productsList.isEmpty()) { %>
-<div class="products-grid">
-    <% for (Map<String, Object> product : productsList) {
-        int quantity = (int) product.get("quantity");
-    %>
-    <div class="product-card">
-        <div><b><%= product.get("name") %></b></div>
-        <div>Price: $<%= product.get("price") %></div>
-        <div>Stock: <%= quantity %></div>
-        <form action="checkout" method="get">
-            <input type="hidden" name="product_id" value="<%= product.get("id") %>">
-            <button <%= quantity == 0 ? "disabled" : "" %>>Buy</button>
-        </form>
-    </div>
-    <% } %>
+<a href="profile?customer_id=1">Profile</a> |
+<a href="orderHistory?customer_id=1">Orders History</a>
+
+<hr>
+
+<%
+    String error = (String) request.getAttribute("error");
+    if (error != null) {
+%>
+<div style="color: red; font-weight: bold; margin-bottom: 15px;">
+    ERROR: <%= error %>
 </div>
-<% } else { %>
-<p>No products available</p>
-<% } %>
+<%
+    }
+%>
+
+<form action="prepareOrder" method="post">
+
+    <%
+        String productsJson = (String) request.getAttribute("productsJson");
+
+        if (productsJson != null) {
+            JSONObject responseObj = new JSONObject(productsJson);  // ✅ Parse as object first
+            JSONArray products = responseObj.getJSONArray("products");  // ✅ Extract array
+
+            for (int i = 0; i < products.length(); i++) {
+                JSONObject product = products.getJSONObject(i);
+                int quantityAvailable = product.getInt("quantity_available");
+
+                if (quantityAvailable > 0) {
+    %>
+    <div style="margin-bottom: 15px;">
+        <b><%= product.getString("product_name") %></b><br>
+        Price: <%= product.getDouble("unit_price") %> EGP<br>
+        Available: <%= quantityAvailable %><br>
+
+        Quantity:
+        <input type="number"
+               name="quantity_<%= product.getInt("product_id") %>"
+               min="0"
+               max="<%= quantityAvailable %>"
+               value="0">
+
+        <input type="hidden"
+               name="product_id"
+               value="<%= product.getInt("product_id") %>">
+    </div>
+    <%
+                }
+            }
+        }
+    %>
+
+    <hr>
+
+    <button type="submit">Make Order</button>
+
+</form>
 
 </body>
 </html>
