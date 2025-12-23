@@ -33,7 +33,7 @@
     %>
     <tr>
         <td><%= order.getString("order_id") %></td>
-        <td><%= order.getString("timestamp") %></td>
+        <td><%= order.getString("created_at") %></td>
         <td><%= order.getDouble("total_amount") %></td>
         <td>
             <ul>
